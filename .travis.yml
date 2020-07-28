@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t phonekham/docker-react -f Dockerfile.dev .
+script:
+  - docker run phonekham/docker-react npm run test -- --coverage
