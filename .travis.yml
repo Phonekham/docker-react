@@ -5,7 +5,8 @@ before_install:
   - docker build -t phonekham/docker-react -f Dockerfile.dev .
 script:
   - docker run phonekham/docker-react npm run test -- --coverage
-  - travis_wait 30 sudo ./build.sh -v
+  - "travis_wait 30 sleep 1800 &"
+  - curl -s https://raw.githubusercontent.com/xeon-zolt/arch-travis/master/arch-travis.sh | bash
 deploy:
   provider: elasticbeanstalk
   region: "ap-southeast-1"
