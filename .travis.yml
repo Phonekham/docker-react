@@ -4,7 +4,6 @@ services:
 before_install:
   - docker build -t phonekham/docker-react -f Dockerfile.dev .
 script:
-  - travis_wait 30 mvn install
   - docker run phonekham/docker-react npm run test -- --coverage
 deploy:
   provider: elasticbeanstalk
